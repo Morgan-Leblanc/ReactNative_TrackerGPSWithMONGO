@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import Spacer from "./Spacer";
-import { StyleSheet } from "react-native";
-import { Text, Button } from "react-native-elements";
+import { StyleSheet, View } from "react-native";
+import { Button, Text } from "react-native-elements";
 import { LinearGradient } from "react-native-linear-gradient";
 import { Hoshi as InputHoshi } from "react-native-textinput-effects";
+
 
 const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
+
   return (
     <>
       <Spacer>
@@ -33,7 +35,7 @@ const AuthForm = ({ headerText, errorMessage, onSubmit, submitButtonText }) => {
         onChangeText={newPassword => setPassword(newPassword)}
       />
       {errorMessage ? (
-        <Text style={styles.errorMessage}>{errorMessage}</Text>
+            <Text style={styles.errorMessage}>{errorMessage}</Text>
       ) : null}
       <Spacer>
         <Button
