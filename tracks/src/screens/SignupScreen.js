@@ -1,8 +1,12 @@
 import React, { useState, useContext } from "react";
-import { StyleSheet, View } from "react-native";
-import { Text, Input, Button } from "react-native-elements";
-import Spacer from "../components/Spacer";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { Text, Button, SocialIcon as LargeButton } from "react-native-elements";
 import { Context as AuthContext } from "../context/AuthContext";
+import Spacer from "../components/Spacer";
+//Import for style from other librairy
+import { LinearGradient } from "react-native-linear-gradient";
+import { Hoshi as InputStyle } from "react-native-textinput-effects";
+
 
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -14,25 +18,42 @@ const SignupScreen = ({ navigation }) => {
       <Spacer>
         <Text h3>SignUp For Tracker</Text>
       </Spacer>
-      <Input
+      <InputStyle
+        style={styles.input}
+        label={"Email"}
         value={email}
         autoCapitalize="none"
         autoCorrect={false}
         onChangeText={newEmail => setEmail(newEmail)}
-        label="Email"
       />
       <Spacer />
-      <Input
-        secureTextEntry={true}
+      <InputStyle
+        style={styles.input}
+        label={"Password"}
+        value={password}
         autoCapitalize="none"
         autoCorrect={false}
-        value={password}
         onChangeText={newPassword => setPassword(newPassword)}
-        label="Password"
       />
-      {state.errorMessage ? <Text style={styles.errorMessage}>{state.errorMessage}</Text> : null}
+      {state.errorMessage ? (
+        <Text style={styles.errorMessage}>{state.errorMessage}</Text>
+      ) : null}
       <Spacer>
-        <Button title="Sign Up" onPress={() => signup({ email, password })} />
+        <Button
+          raised={true}
+          ViewComponent={LinearGradient}
+          linearGradientProps={{
+            colors: ["blue", "pink"],
+            start: { x: 0, y: 0.5 },
+            end: { x: 1, y: 0.5 }
+          }}
+          title="Sign Up"
+          onPress={() => signup({ email, password })}
+        />
+        <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
+          <Spacer />
+          <LargeButton button light title="You have un acount ? Go to signIn" />
+        </TouchableOpacity>
       </Spacer>
     </View>
   );
@@ -46,10 +67,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 100
   },
-  errorMessage:{
-    fontSize:16,
-    color: 'red',
+  errorMessage: {
+    fontSize: 16,
+    color: "red",
     marginLeft: 15,
-    marginTop: 15,
-  }
+    marginTop: 15
+  },
+  input: {
+    borderColor: "#b76c94",
+    padding: 16,
+    backgroundColor: "#F9F7F6"
+  },
 });
