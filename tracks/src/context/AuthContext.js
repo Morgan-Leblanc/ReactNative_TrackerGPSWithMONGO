@@ -1,6 +1,7 @@
 import createDataContext from "./createDataContext";
 import trackerApi from "../api/tracker";
 import { AsyncStorage } from "react-native";
+import { navigate } from "../navigationRef";
 
 const authReducer = (state, actions) => {
   switch (actions.type) {
@@ -13,24 +14,34 @@ const authReducer = (state, actions) => {
   }
 };
 
-const signup = dispatch => {
-  return async ({ email, password }) => {
+const signup = dispatch => async ({ email, password }) => {
     try {
-      const response = await trackerApi.post("/signup", { email, password });
-      await AsyncStorage.setItem("token", response.data.token);
-      dispatch({ type: "signup", payload: response.data.token });
+        const response = await trackerApi.post("/signup", { email, password });
+        await AsyncStorage.setItem("token", response.data.token);
+        dispatch({ type: "signup", payload: response.data.token });
+        navigate("TrackList");
     } catch (err) {
+        console.log(err);
       dispatch({
         type: "add_error",
         payload: "Something went wrong with sign up"
       });
     }
   };
-};
 
-const signin = dispatch => {
-  return ({ email, password }) => {};
-};
+const signin = dispatch => async ({ email, password }) => {
+    try {
+      const response = await trackerApi.post("/signin", { email, password });
+      await AsyncStorage.setItem("token", response.data.token);
+      dispatch({ type: "signup", payload: response.data.token });
+      navigate("TrackList");
+    } catch (err) {   
+      dispatch({
+        type: "add_error",
+        payload: "Something went wrong with sign in"
+      });
+    }
+  };
 
 const signout = dispatch => {
   return ({ email, password }) => {};
