@@ -13,13 +13,13 @@ import TrackListScreen from "./src/screens/TrackListScreen";
 
 const doNotShowHeaderOption = {
   navigationOptions: {
-    header: null,
+    headerShown: false,
   }
 }
 
 const switchNavigator = createSwitchNavigator({
   loginFlow: createStackNavigator({
-    Signup: SignupScreen,
+    Signup: {screen: SignupScreen, ...doNotShowHeaderOption},
     Signin: {screen: SigninScreen, ...doNotShowHeaderOption}
   }),
   mainFlow: createBottomTabNavigator({
