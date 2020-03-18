@@ -31,6 +31,6 @@ PS:
 
 The file_mocklocation simulates the movement of a user.
 
-If you want to test the application yourself commented on the import in "TrackCreateScreen".
+If you want to test the application yourself commented on the import in "TrackCreateScreen.js".
 
 Enjoy
