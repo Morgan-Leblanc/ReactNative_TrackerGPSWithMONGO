@@ -27,9 +27,9 @@ Step 3 => npm start
 
 The application is ready to be used
 
-PS: T
+PS: 
 
-he file_mocklocation simulates the movement of a user.
+The file_mocklocation simulates the movement of a user.
 
 If you want to test the application yourself commented on the import in "TrackCreateScreen".
 
