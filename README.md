@@ -6,7 +6,7 @@ BACKEND:
 Step 1 => go to the tracks-server folder => npm i
 
 Step 2 => launch the "npm run dev" server
-then in another ngrok terminal with the command "ngrok http {le port du seveur}"
+then in another ngrok terminal with the command "ngrok http {Port of server}"
 ex: http ngrok 3000.
 
 I'll let you watch the ngrok doc afterwards
