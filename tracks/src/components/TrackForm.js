@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
+//Style
 import { Button } from "react-native-elements";
 import { Hoshi as InputHoshi } from "react-native-textinput-effects";
 import { StyleSheet, View } from "react-native";
 import { LinearGradient } from "react-native-linear-gradient";
 import Spacer from "./Spacer";
+//Context
 import { Context as LocationContext } from "../context/LocationContext";
+//Hooks
 import useSaveTrack from "../hooks/useSaveTrack";
 
 

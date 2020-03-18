@@ -2,9 +2,9 @@ import axios from "axios";
 import { AsyncStorage } from "react-native";
 
 const instance = axios.create({
-  baseURL: "http://cad5aaeb.ngrok.io"
+  baseURL: "http://0afca3a5.ngrok.io"
 });
-
+//For put the token of the user in all the request
 instance.interceptors.request.use(
   async config => {
     const token = await AsyncStorage.getItem("token");

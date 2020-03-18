@@ -1,6 +1,10 @@
+//Flow for Context
 import createDataContext from "./createDataContext";
+// Call API
 import trackerApi from "../api/tracker";
+//Import of  Storage  for the token
 import { AsyncStorage } from "react-native";
+//import of own flow for navigate outside the router
 import { navigate } from "../navigationRef";
 
 const authReducer = (state, actions) => {
@@ -11,8 +15,8 @@ const authReducer = (state, actions) => {
       return { errorMessage: "", token: actions.payload };
     case "clear_error_message":
       return { ...state, errorMessage: "" };
-      case "signout":
-        return {token:null, errorMessage:""}
+    case "signout":
+      return { token: null, errorMessage: "" };
     default:
       return state;
   }
@@ -48,12 +52,10 @@ const signin = dispatch => async ({ email, password }) => {
 };
 
 const signout = dispatch => async () => {
- await AsyncStorage.removeItem('token')
- dispatch({type: 'signout'})
- navigate("Signin")
-  };
-
-
+  await AsyncStorage.removeItem("token");
+  dispatch({ type: "signout" });
+  navigate("Signin");
+};
 
 const tryLocalSignin = dispatch => async () => {
   const token = await AsyncStorage.getItem("token", token);

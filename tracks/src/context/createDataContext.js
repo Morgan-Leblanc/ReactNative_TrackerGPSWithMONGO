@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
-import { StyleSheet, Text, View } from "react-native";
+//Style
+import { StyleSheet } from "react-native";
 
 export default (reducer, actions, defaultValue) => {
   const Context = React.createContext();

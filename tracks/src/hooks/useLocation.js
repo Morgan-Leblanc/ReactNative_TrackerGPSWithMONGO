@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+// import all params for set up  the positions of the user
 import {
   requestPermissionsAsync,
   watchPositionAsync,

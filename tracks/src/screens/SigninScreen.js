@@ -1,18 +1,20 @@
 import React, { useContext } from "react";
+//Context
 import { Context as AuthContext } from "../context/AuthContext";
+//Nav
 import { NavigationEvents } from "react-navigation";
-import AuthForm from "../components/AuthForm";
-import { StyleSheet, View } from "react-native";
 import NavLink from "../components/NavLink";
+//Form
+import AuthForm from "../components/AuthForm";
+//Style
+import { StyleSheet, View } from "react-native";
 
 const SigninScreen = () => {
   const { state, signin, clearErrorMessage } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
-      <NavigationEvents
-        onWillBlur={clearErrorMessage}
-      />
+      <NavigationEvents onWillBlur={clearErrorMessage} />
       <AuthForm
         headerText="Sign In To Your account"
         errorMessage={state.errorMessage}

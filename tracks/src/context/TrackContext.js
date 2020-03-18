@@ -1,4 +1,6 @@
+//Flow for Context
 import createDataContext from "./createDataContext";
+// Call API
 import trackerApi from "../api/tracker";
 
 const trackReducer = (state, action) => {

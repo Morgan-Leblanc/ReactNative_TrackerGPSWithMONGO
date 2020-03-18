@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+//Style
 import Spacer from "./Spacer";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet} from "react-native";
 import { Button, Text } from "react-native-elements";
 import { LinearGradient } from "react-native-linear-gradient";
 import { Hoshi as InputHoshi } from "react-native-textinput-effects";

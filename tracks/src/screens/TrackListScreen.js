@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  TouchableOpacity
-} from "react-native";
+//Style
+import { StyleSheet, View, FlatList, TouchableOpacity } from "react-native";
 import { ListItem } from "react-native-elements";
+//Nav
 import { NavigationEvents } from "react-navigation";
+//Context
 import { Context as TrackContext } from "../context/TrackContext";
 
 const TrackListScreen = ({ navigation }) => {
@@ -34,6 +31,13 @@ const TrackListScreen = ({ navigation }) => {
   );
 };
 
+//Navigation Options for Design
+TrackListScreen.navigationOptions = {
+  title: " List of Tracks",
+  headerStyle: {
+    backgroundColor: "#b76c94"
+  }
+};
 
 export default TrackListScreen;
 

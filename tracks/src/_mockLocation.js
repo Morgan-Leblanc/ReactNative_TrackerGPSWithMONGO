@@ -26,3 +26,6 @@ setInterval(() => {
     });
     counter ++
 }, 1000);
+
+
+//This file is used to simulate the movement of a user
